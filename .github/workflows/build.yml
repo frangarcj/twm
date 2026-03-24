@@ -12,9 +12,9 @@ jobs:
     container: node:22-alpine
 
     steps:
-    - uses: actions/checkout@v2
     - name: Install git
       run: apk add --no-cache git
+    - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
         npm ci

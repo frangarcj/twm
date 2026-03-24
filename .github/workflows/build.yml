@@ -13,9 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install git
+      run: apk add --no-cache git
     - name: Install dependencies
       run: |
         npm ci
     - name: Run tests
       run: |
         npm test
+    - name: Test Report
+      uses: dorny/test-reporter@v3
+      if: ${{ !cancelled() }}       # run this step even if previous step failed
+      with:
+        name: JEST Tests            # Name of the check run which will be created
+        path: reports/junit/junit-*.xml    # Path to test results
+        reporter: jest-junit        # Format of test results

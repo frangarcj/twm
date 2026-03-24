@@ -62,3 +62,6 @@ typings/
 
 # test coverage and reports
 reports
+
+# moongose data
+data

@@ -10,7 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: node:22-alpine
-
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: write
     steps:
     - name: Install git and bash
       run: apk add --no-cache git bash

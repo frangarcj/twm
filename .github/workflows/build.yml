@@ -30,3 +30,9 @@ jobs:
         name: JEST Tests            # Name of the check run which will be created
         path: reports/junit/junit.xml    # Path to test results
         reporter: jest-junit        # Format of test results
+    - name: Coverage Report
+      uses: ArtiomTr/jest-coverage-report-action@v2
+      if: ${{ !cancelled() }}       # run this step even if previous step failed
+      with:
+        coverage-file: reports/coverage/coverage-final.json # Path to coverage file 
+        base-coverage-file: reports/coverage/coverage-final.json # Path to base coverage file (optional)

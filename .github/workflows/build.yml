@@ -12,8 +12,8 @@ jobs:
     container: node:22-alpine
 
     steps:
-    - name: Install git
-      run: apk add --no-cache git
+    - name: Install git and bash
+      run: apk add --no-cache git bash
     - uses: actions/checkout@v2
     - name: Git Workaround
       run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
